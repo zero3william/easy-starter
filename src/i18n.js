@@ -4,7 +4,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { reactI18nextModule } from 'react-i18next';
 import axios from 'axios';
 
-
 const dev_api = 'http://localhost:8088/';
 
 i18n
@@ -19,22 +18,20 @@ i18n
     defaultNS: 'translations',
 
     debug: false,
-    saveMissing:false,
+    saveMissing: false,
     missingKeyHandler: function(lng, ns, key) {
-        var params = new URLSearchParams();
-        params.append("lng" , JSON.stringify( lng ));
-        params.append("ns" ,  ns );
-        params.append("key" , key );
-        const { data } = axios.post( dev_api + 'misswords' , params );
+      var params = new URLSearchParams();
+      params.append('lng', JSON.stringify(lng));
+      params.append('ns', ns);
+      params.append('key', key);
+      const { data } = axios.post(dev_api + 'misswords', params);
     },
     interpolation: {
-      escapeValue: false, // not needed for react!!
+      escapeValue: false // not needed for react!!
     },
-
     react: {
       wait: true
     }
   });
-
 
 export default i18n;

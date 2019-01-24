@@ -5,9 +5,13 @@ import { translate } from 'react-i18next';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
-  main: {
-    width: '80px',
-    height: '40px'
+  brand: {
+    width: '180px',
+    height: '64px',
+    backgroundRepeat: 'no-repeat',
+    backgroundImage:
+      'url(https://cdn-images-1.medium.com/max/2000/1*fVyLVvnbisXOgh1v3EhTrg.png)',
+    backgroundSize: '180px 64px'
   }
 });
 @withStyles(styles)
@@ -15,9 +19,9 @@ const styles = theme => ({
 @translate()
 @inject('store')
 @observer
-export default class Example extends Component {
+export default class Brand extends Component {
   render() {
     const { classes } = this.props;
-    return <div className={classes.main} />;
+    return <div className={classes.brand} />;
   }
 }
